@@ -74,17 +74,4 @@ class WordGuesserGame
     end
   end
 
-  def guesses
-    @guesses
-  end
-
-  def wrong_guesses
-    @wrong_guesses
-  end
-
-  def word
-    @word
-  end
-
-
 end

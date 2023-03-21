@@ -8,7 +8,7 @@ class WordGuesserApp < Sinatra::Base
   register Sinatra::Flash
   
   before do
-    @game = session[:game] || WordGuessGame.new('')
+    @game = session[:game] || WordGuesserGame.new('')
   end
   
   after do
@@ -27,14 +27,14 @@ class WordGuesserApp < Sinatra::Base
   
   post '/create' do
     # NOTE: don't change next line - it's needed by autograder!
-    word = params[:word] || WordGuessGame.get_random_word
+    word = params[:word] || WordGuesserGame.get_random_word
     # NOTE: don't change previous line - it's needed by autograder!
 
-    @game = WordGuessGame.new(word)
+    @game = WordGuesserGame.new(word)
     redirect '/show'
   end
   
-  # Use existing methods in WordGuessGame to process a guess.
+  # Use existing methods in WordGuesserGame to process a guess.
   # If a guess is repeated, set flash[:message] to "You have already used that letter."
   # If a guess is invalid, set flash[:message] to "Invalid guess."
   post '/guess' do
@@ -50,7 +50,7 @@ class WordGuesserApp < Sinatra::Base
   end
   
   # Everytime a guess is made, we should eventually end up at this route.
-  # Use existing methods in WordGuessGame to check if player has
+  # Use existing methods in WordGuesserGame to check if player has
   # won, lost, or neither, and take the appropriate action.
   # Notice that the show.erb template expects to use the instance variables
   # wrong_guesses and word_with_guesses from @game.
